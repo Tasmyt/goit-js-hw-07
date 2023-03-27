@@ -5,8 +5,6 @@ const ListImage = document.querySelector(".gallery");
 const cardImages = galleryCardsMarkup(galleryItems);
 ListImage.insertAdjacentHTML("beforeend", cardImages);
 
-ListImage.addEventListener("click", onImageClick);
-
 function galleryCardsMarkup(items) {
   return items
     .map(({ preview, original, description }) => {
@@ -23,11 +21,9 @@ function galleryCardsMarkup(items) {
     .join("");
 }
 
-function onImageClick(evt) {
-  evt.preventDefault();
   new SimpleLightbox(".gallery__item a", {
     captionsData: "alt",
     captionPosition: "bottom",
     captionDelay: 250,
   });
-}
+
